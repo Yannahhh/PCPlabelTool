@@ -72,9 +72,11 @@
                     }
                 })
                 .on('mouseup', () => {
+                    if (this.isMouseDown === true) {
+                        this.endx = d3.mouse(d3.event.currentTarget)[0];
+                        this.endy = d3.mouse(d3.event.currentTarget)[1];
+                    }
                     this.isMouseDown = false;
-                    this.endx = d3.mouse(d3.event.currentTarget)[0];
-                    this.endy = d3.mouse(d3.event.currentTarget)[1];
                 });
         },
 
