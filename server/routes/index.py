@@ -40,16 +40,18 @@ def saveResult():
 
     # save a .txt for each image
     for i, val in enumerate(data):
+        print(val)
         _id = val['imageId'].split('.')[0]
         filename = './server/result/' + _id + '.txt'
         with open(filename, 'w') as f:
-            for j in range(int(val['axisNum']) - 1):
-                cwidth = val['width'] * 1.0 / (int(val['axisNum']) - 1)
-                cheight = val['height'] * 1.0
-                cx = val['x'] + (j * cwidth) + (cwidth * 0.5)
-                cy = val['y'] + (cheight * 0.5)
-                f.write('0 ' + str(cx/val['imageWidth']) + ' ' + str(cy/val['imageHeight']) + ' ' 
-                    + str(cwidth/val['imageWidth']) + ' ' + str(cheight/val['imageHeight']) + '\n')
+            for pcpidx, pcp in enumerate(val['labels']):
+                for j in range(int(pcp['axisNum']) - 1):
+                    cwidth = pcp['width'] * 1.0 / (int(pcp['axisNum']) - 1)
+                    cheight = pcp['height'] * 1.0
+                    cx = pcp['x'] + (j * cwidth) + (cwidth * 0.5)
+                    cy = pcp['y'] + (cheight * 0.5)
+                    f.write('0 ' + str(cx/val['imageWidth']) + ' ' + str(cy/val['imageHeight']) + ' ' 
+                        + str(cwidth/val['imageWidth']) + ' ' + str(cheight/val['imageHeight']) + '\n')
 
     return 'success'
 
