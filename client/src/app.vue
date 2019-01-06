@@ -1,5 +1,5 @@
 <template>
-<div>
+<div style="left:0px">
     <img ref="imageel" id="imagediv" v-bind:src="imageUrl" height="600px">
     <div ref="boundingBoxdiv" id="boundingBox"></div>
     <div class="axisdiv" v-for="onePCP in currentLabels">
@@ -158,7 +158,7 @@
     #boundingBox {
         position: absolute;
         top: 8px;
-        left: 0px;
+        left: 8px;
         margin: 0px 0px 0px 0px;
     }
 
