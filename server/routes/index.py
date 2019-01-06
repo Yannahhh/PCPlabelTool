@@ -41,7 +41,7 @@ def saveResult():
     # save a .txt for each image
     for i, val in enumerate(data):
         print(val)
-        _id = val['imageId'].split('.')[0]
+        _id = val['imageId']
         filename = './server/result/' + _id + '.txt'
         with open(filename, 'w') as f:
             for pcpidx, pcp in enumerate(val['labels']):

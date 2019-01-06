@@ -13,3 +13,5 @@ logs/
 storage/
 nohup.out
 package-lock.json
+server/data/
+server/result/
